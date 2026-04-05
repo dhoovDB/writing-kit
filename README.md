@@ -19,7 +19,7 @@ A personal writing system built around a specific communication style. Not a gen
 
 ## Philosophy
 
-Built on the [AI Fluency Framework](https://aifluencyframework.org) (Delegation, Description, Discernment, Diligence) and the PM frameworks of Nils Davis and Marty Cagan. AI drafts. You decide.
+Built on the [AI Fluency Framework](https://aifluencyframework.org) (Delegation, Description, Discernment, Diligence) and the PM frameworks of Nils Davis and Marty Cagan. AI drafts and you make the decisions.
 
 ## Diligence
 
