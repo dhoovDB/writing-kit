@@ -66,4 +66,3 @@ owner's own style and thinking. AI was used to draft, structure, and iterate
 When outputs from this writing system are used in professional contexts,
 the author takes full responsibility for accuracy, tone, and appropriateness.
 AI assistance does not transfer ownership of the work or the decisions it reflects.
-

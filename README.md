@@ -2,8 +2,6 @@
 
 A personal writing system built around a specific communication style, calibrated to my tone and writing style.
 
-
-
 ## What's here
 
 |File|Purpose|
@@ -26,4 +24,3 @@ Built on the [AI Fluency Framework](https://aifluencyframework.org) (Delegation,
 ## Diligence
 
 This repo was developed collaboratively with Claude (Anthropic). The voice, frameworks, and editorial judgments are the author's own. All content has been reviewed and approved before use. The author takes full responsibility for anything produced with these tools.
-
