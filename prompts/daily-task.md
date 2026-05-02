@@ -1,4 +1,4 @@
-Before selecting a task, read CLAUDE.md and any architecture or constraints sections in ROADMAP.md. Note any norms that should shape your selection — patterns to follow, layers to respect, things explicitly ruled out. Carry these forward into your evaluation.
+Before selecting a task, read CLAUDE.md and any architecture or constraints sections in ROADMAP.md. Note any norms that should shape your selection including patterns to follow, layers to respect, things explicitly ruled out. Carry these forward into your evaluation.
 
 Then read ROADMAP.md and select the single highest-priority incomplete task based on:
 
