@@ -85,6 +85,7 @@ Shorter is nearly always better. After drafting, cut:
 - Any sentence that restates the previous one in different words
 - Any word that doesn't change the meaning if removed
 - Any opening clause before the real subject ("In order to...", "Given that...")
+- Avoid sentences that announce what the next sentence will say. If two consecutive sentences make the same point, the first one is almost always the one to cut.
 
 If a paragraph runs more than 4 sentences, ask whether it's doing one job or two.
 If two: split it or cut the weaker one.
@@ -108,10 +109,11 @@ If two: split it or cut the weaker one.
 - Use passive voice to avoid ownership: "we decided" not "a decision was made"
 - Say the same thing twice. If two sentences make the same point, cut one —
   almost always the second, which is almost always weaker
+- Use "not just X but Y" constructions. They perform insight instead of delivering it. If the contrast matters, state the stronger claim directly
 - Use em-dashes. They have become a recognizable AI writing pattern and break
   the natural rhythm of this voice. Use a period, a comma, or restructure the
   sentence. Reserve em-dashes for rare cases where nothing else works.
-
+   
 ---
 
 ## Zoom out before zooming in
