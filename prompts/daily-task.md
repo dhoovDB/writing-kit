@@ -9,6 +9,6 @@ Return:
 - The selected task and why
 - The specific files it touches
 - The definition of done (how we'll know it's complete)
-- One thing that could go wrong and how to handle it
+- One or two things that could go wrong and how to handle it
 
 Do not start building. Wait for approval.
