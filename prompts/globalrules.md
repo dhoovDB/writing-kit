@@ -15,11 +15,10 @@ approval. "Go ahead," "make those changes," or "do it" is approval.
 
 ## Skills
 
-Before implementing any task, search for a relevant SKILL.md in 
-github.com/dhoovDB/claude-skills. If a skill's trigger description 
-matches the task, load it before writing any code. Skills contain 
-current best practices, environment constraints, and patterns that 
-override training data defaults.
+At the start of each session, check github.com/dhoovDB/claude-skills 
+once for relevant skills. Load only skills whose trigger matches the 
+current task. Do not re-check between tasks in the same session — 
+assume the skill library hasn't changed mid-session.
 
 ---
 
