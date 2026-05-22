@@ -48,6 +48,76 @@ whether the output is accurate before it leaves your hands. If you're unsure
 about a fact in an AI-generated draft, that uncertainty is yours to resolve —
 not the model's.
 
+## Skill repos
+
+Two skill libraries are available locally. When a task matches a skill's 
+trigger, load the SKILL.md before writing any code or output.
+
+claude-skills: ~/OneDrive/Documents/claude-skills
+pm-skills:     ~/OneDrive/Documents/pm-skills
+
+Do not load skills speculatively or in bulk. One skill per task, loaded 
+only when the trigger matches. Check once at session start and once when 
+a new task type is introduced.
+
+---
+
+### High-relevance skills and their triggers
+
+**React and frontend**
+- senior-frontend — any React component, bundle, performance, or a11y task
+- ui-design-system — design tokens, component documentation, design handoff
+
+**ML and data**
+- senior-ml-engineer — MLOps, model deployment, drift, LLM integration
+- senior-data-engineer — data pipelines, ETL/ELT, Spark, Airflow, dbt
+- senior-data-scientist — experiment design, feature engineering, model eval
+- data-quality-auditor — dataset profiling, anomaly detection, remediation
+- llm-cost-optimizer — token usage, prompt caching, model selection
+
+**Robotics and infrastructure**
+- senior-computer-vision — object detection, segmentation, ONNX/TensorRT
+- docker-development — Dockerfile optimization, multi-stage builds
+- kubernetes-operator — K8s controllers, CRDs, reconcile loops
+- senior-devops — CI/CD, IaC, cloud deploy, monitoring
+- observability-designer — metrics, logs, traces, SLI/SLO design
+- chaos-engineering — fault injection, gamedays, fleet resilience
+
+**AI application development**
+- mcp-server-builder — exposing an API as MCP, Claude/Cursor integrations
+- agent-designer — multi-agent systems, autonomous workflows
+- senior-prompt-engineer — prompt optimization, LLM eval, structured output
+- rag-architect — RAG design, retrieval strategy, vector search
+
+**Code quality (cross-cutting)**
+- code-reviewer — PR review, SOLID checks, quality analysis
+- tdd-guide — TDD workflow, coverage gaps, Jest/Pytest/Vitest
+- senior-architect — system design, ADRs, architecture diagrams
+- performance-profiler — slow endpoints, memory leaks, perf budgets
+
+**PM craft**
+- create-prd — writing or reviewing a PRD or feature spec
+- outcome-roadmap — rewriting output-focused roadmaps as outcome-focused
+- prioritization-frameworks — RICE, ICE, Kano, MoSCoW reference
+- opportunity-solution-tree — discovery structure, outcome to experiments
+- ab-test-analysis — experiment results, significance, ship/stop calls
+- cohort-analysis — retention by cohort, feature adoption, churn patterns
+- metrics-dashboard — KPI definition, dashboard design, alert thresholds
+- sql-queries — natural language to SQL, data reports
+
+---
+
+### Skills to build (gaps not covered by either repo)
+
+- ros2 — ROS2 node patterns, launch files, topic/service conventions. 
+  Build this as ros2-hello-world progresses.
+- tanstack-start — SSR routing, server functions, Cloudflare Workers 
+  deployment. Build this as str-host-assistant matures.
+- vitest — testing conventions for pure engine functions, multi-tick 
+  simulation integration tests. Build from banking-empire patterns.
+- html5-canvas — iso coordinate system, tile-fraction sizing, no raw 
+  pixel anchors. Build from banking-empire renderer patterns.
+
 ## Maintenance
 
 When your style evolves, update `system\_prompt.md` first. The examples will
