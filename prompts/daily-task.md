@@ -1,3 +1,5 @@
+# Daily Task Selection
+
 This prompt operationalizes the Discernment and Diligence layers of the 
 4D framework. Discernment: evaluate the roadmap critically before picking. 
 Diligence: the selection is mine to own — you propose, I approve, nothing 
