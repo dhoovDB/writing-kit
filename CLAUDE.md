@@ -53,8 +53,8 @@ not the model's.
 Two skill libraries are available locally. When a task matches a skill's 
 trigger, load the SKILL.md before writing any code or output.
 
-claude-skills: ~/OneDrive/Documents/claude-skills
-pm-skills:     ~/OneDrive/Documents/pm-skills
+claude-skills: C:\Projects\claude-skills
+pm-skills:     C:\Projects\pm-skills
 
 Do not load skills speculatively or in bulk. One skill per task, loaded 
 only when the trigger matches. Check once at session start and once when 
@@ -104,6 +104,7 @@ a new task type is introduced.
 - cohort-analysis — retention by cohort, feature adoption, churn patterns
 - metrics-dashboard — KPI definition, dashboard design, alert thresholds
 - sql-queries — natural language to SQL, data reports
+- product-challenge — before committing a roadmap or shipping a release: six forcing questions (JTBD, north star, PMF signal, RICE, cut list, kill criteria)
 
 ---
 

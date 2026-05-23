@@ -1,288 +1,163 @@
-\# Global Rules
-
-
+# Global Rules
 
 Read this at the start of every session. These rules apply to every repo.
 
+---
 
-
-\---
-
-
-
-\## Delegation
-
-
+## Delegation
 
 The human decides what to build and when. Claude executes.
 
-
-
 Never start implementation without explicit approval. "Sounds good" is not
-
 approval. "Go ahead," "make those changes," or "do it" is approval.
 
+---
 
+## Skills
 
-\---
-
-
-
-\## Skills
-
-
-
-At the start of each session, check github.com/dhoovDB/claude-skills
-
-once for relevant skills. Load only skills whose trigger matches the
-
-current task. Do not re-check between tasks in the same session —
-
+At the start of each session, check for relevant skills once. Look in the
+local Projects directory first — C:\Projects\claude-skills and
+C:\Projects\pm-skills. If neither is present locally, fall back to
+github.com/dhoovDB/claude-skills. Load only skills whose trigger matches
+the current task. Do not re-check between tasks in the same session —
 assume the skill library hasn't changed mid-session.
 
+---
 
-
-\---
-
-
-
-\## Feedback and planning mode
-
-
+## Feedback and planning mode
 
 Phrases like "add this to the roadmap," "for the backlog," "I'm thinking
-
 about," "FYI," "note that," "consider X" signal planning input, not a
-
 directive. Acknowledge in one sentence and wait. Only act on an explicit
-
 instruction to proceed.
 
+When feedback arrives mid-task that is unrelated to the current work,
+note it and continue. Do not commit unrelated changes mid-task. Batch
+them and handle at a natural stopping point — either the end of the
+current task or a dedicated cleanup commit. The user can signal this
+explicitly with "parking this for later" but Claude Code should apply
+the same logic to any feedback that doesn't touch the current task's
+files.
 
+---
 
-\---
-
-
-
-\## Batching
-
-
+## Batching
 
 When multiple pieces of feedback land in succession, accumulate them all
-
 first. Summarize as a numbered list and ask "ready to proceed with all of
-
 these?" Wait for confirmation before touching any file.
 
+---
 
-
-\---
-
-
-
-\## Approval phrasing
-
-
+## Approval phrasing
 
 "Sounds good," "OK," "yeah," "interesting" — not approval.
-
 "Go ahead," "commit it," "make those changes," "do it," "approved" — approval.
-
 When in doubt, ask one clarifying question rather than guess.
 
+---
 
+## Architecture principles (all repos)
 
-\---
+- Config is data only. No functions, logic, or arrow functions as values
+  in config files. If it calculates something, it belongs in the engine.
+- Engine functions are pure. Same input → same output. No side effects.
+- I/O is isolated at the boundary. API calls and database writes live in
+  their own layer. Engine functions do not call external services.
+- One smart component per UI. State lives at the root. Everything else
+  receives props and renders.
 
+---
 
-
-\## Architecture principles (all repos)
-
-
-
-\- Config is data only. No functions, logic, or arrow functions as values
-
-&#x20; in config files. If it calculates something, it belongs in the engine.
-
-\- Engine functions are pure. Same input → same output. No side effects.
-
-\- I/O is isolated at the boundary. API calls and database writes live in
-
-&#x20; their own layer. Engine functions do not call external services.
-
-\- One smart component per UI. State lives at the root. Everything else
-
-&#x20; receives props and renders.
-
-
-
-\---
-
-
-
-\## Status reporting
-
-
+## Status reporting
 
 Every task summary ends with this block — no exceptions:
 
-
-
-WRITTEN TO DISK: \[every file created, modified, or deleted]
-
-ROADMAP.md UPDATED: \[yes — what changed / no changes needed / NOT YET]
-
-GIT STATUS: \[untracked / modified not staged / staged / committed / pushed]
-
-NEXT STEP: \[one sentence — what happens next and who acts]
-
-
+WRITTEN TO DISK: [every file created, modified, or deleted]
+ROADMAP.md UPDATED: [yes — what changed / no changes needed / NOT YET]
+GIT STATUS: [untracked / modified not staged / staged / committed / pushed]
+NEXT STEP: [one sentence — what happens next and who acts]
 
 Never use "done" or "complete" without this block following immediately.
-
 Never assume a file was written, committed, or pushed unless the relevant
-
 command ran and returned no errors in this session.
 
+---
 
-
-\---
-
-
-
-\## Definition of done
-
-
+## Definition of done
 
 A task is done only when:
-
-\- Files exist on disk
-
-\- Changes are committed and pushed
-
-\- ROADMAP.md reflects the completed work
-
-\- No outstanding verification steps remain
-
-
+- Files exist on disk
+- Changes are committed and pushed
+- ROADMAP.md reflects the completed work
+- No outstanding verification steps remain
 
 "Verification later" means the task is still in progress.
 
+---
 
+## User verification
 
+When asking the user to validate visually, provide a numbered checklist
+of exactly what to confirm — e.g. "click a checklist step → should toggle
+green," "type in notes → spinner appears for ~800ms, then settles back to
+the check icon." Do not say "try it and see." List the specific observable
+behaviors the change should produce so the user can match expectations to
+reality and report mismatches fast. A vague ask gets a vague answer; a
+checklist gets useful input.
 
+---
 
-\## User Verification
+## Commit discipline
 
-
-
-When asking the user to validate visually, provide a numbered checklist of exactly what to confirm — e.g. "click a checklist step → should toggle green," "type in notes → spinner appears for \~800ms, then settles back to the check icon". Do not say "try it and see", always list the specific observable behaviors the change should produce so the user can match expectations to reality and report mismatches fast. Be clear about any mocked data or placeholders. A vague ask gets a vague answer, a checklist gets useful input.
-
-
-
-
-
-\---
-
-
-
-\## Commit discipline
-
-
-
-One logical code or functionality change per commit. If code changes take >2
-
-sentences to describe, it is two commits. Documentation and roadmap updates
-
-may travel with an unrelated commit. A feature landing plus its ROADMAP.md update
-
-and other feedback captured in the session is one commit, not two. The
-
-documentation is the paper trail for the work, not a separate change.
-
-The same applies to CLAUDE.md updates prompted by a decision made during
-
-a session.
-
-
+One logical code or functionality change per commit. If code changes take
+more than two sentences to describe, it is two commits. Documentation and
+roadmap updates travel with the commit they belong to — a feature landing
+plus its ROADMAP.md update is one commit, not two. The same applies to
+CLAUDE.md updates prompted by a decision made during a session.
 
 A standalone documentation commit is only appropriate when there is no
-
 associated code change — for example, a pure planning session that adds
-
 backlog items or captures a decision without touching any implementation
-
 files.
 
-
+When feedback arrives mid-task that is unrelated to the current work,
+note it and continue. Do not commit unrelated changes mid-task. Batch
+them and handle at a natural stopping point.
 
 Never commit without explicit approval.
-
 Update ROADMAP.md before every commit.
 
+---
 
+## Before every commit
 
-\## Before every commit
-
-
-
-Run /codereview before committing any task. This is not optional — 
-
-it is the last step before approval. The commit discipline gate does 
-
+Run /codereview before committing any task. This is not optional —
+it is the last step before approval. The commit discipline gate does
 not open until /codereview has run and all MUST FIX items are resolved.
 
-
-
 Order:
+1. Task complete
+2. /codereview — fix any blockers
+3. Request commit approval
+4. Commit
 
-1\. Task complete
+---
 
-2\. /codereview — fix any blockers
-
-3\. Request commit approval
-
-4\. Commit
-
-
-
-
-
-\---
-
-
-
-\## Voice
-
-
+## Voice
 
 Claude Code does not write in the user's personal voice unless explicitly
-
 asked. CLAUDE.md entries, decision log notes, code comments, and status
-
 reports use neutral, precise language.
 
-
-
-The user's writing system prompt lives in writing-kit/system\_prompt.md
-
+The user's writing system prompt lives in writing-kit/system_prompt.md
 and is invoked manually for content the user will publish or send —
-
 READMEs, portfolio copy, PRD drafts. It is not active by default.
 
-
-
 In working conversations, use full sentences and a collegial tone.
-
 The voice kit does not govern how Claude talks to the user — only
-
 content the user will publish or send.
 
-
-
 PR bodies and commit messages may use a warmer, more informal register
-
 (see repo-specific CLAUDE.md for the exact tone). That is not the same
-
 as the user's personal writing voice.
-
