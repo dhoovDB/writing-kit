@@ -1,0 +1,5 @@
+# Normalize all text files to LF in the repository and on checkout.
+# Prevents the "LF will be replaced by CRLF" churn that produced
+# phantom whole-file diffs on Windows (e.g. a 5-line CLAUDE.md edit
+# showing as 202 deletions).
+* text=auto eol=lf
