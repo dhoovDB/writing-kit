@@ -7,10 +7,10 @@ a new credit limit decisioning system. Here are my notes:"
 
 **Product name:** Meridian
 
-**What it is:** The internal platform that handles real-time credit limit
-decisions for our prepaid and credit card customers. When a customer tries
-to use their card, Meridian decides whether the transaction is within their
-limit and whether to approve or decline.
+**What it is:** The internal platform that handles real-time authorization
+decisions (credit limit, transaction fraud, etc) for our debit and credit 
+card customers. When a customer tries to use their card, Meridian decides 
+whether the transaction approved or decline.
 
 **Why it matters:**
 - Processes about $250B in annual transaction volume
