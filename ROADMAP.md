@@ -1,6 +1,15 @@
-# Roadmap
+# writing-kit — Roadmap
 
-Priority-ordered backlog for writing-kit. The `daily-task.md` prompt reads this
+## What this builds toward
+
+writing-kit is the portfolio's writing system and conventions hub: a personal
+voice calibrated to one person, plus the PRD templates and prompt library
+(`globalrules`, `dailytask`, `codereview`) that every other repo runs on. It
+builds toward a complete, self-checking toolkit — not just a voice to write in,
+but the tools to verify a draft matches it and to reuse the voice everywhere it
+is needed.
+
+This file is the priority-ordered backlog. The `daily-task.md` prompt reads it
 top-down: P1 before P2, with learning value and 1–2 hour scope as tiebreakers.
 Update before every commit.
 
@@ -68,3 +77,7 @@ P-tier when ready.
   gap in `pm-skills` (has `release-notes`, `summarize-meeting`, not this).
 - **Reconcile** `prd_template.md` (writing-kit) vs `create-prd` (pm-skills) — pick
   a canonical one; have the other reference it.
+
+---
+
+*Last updated: 2026-05-25*
