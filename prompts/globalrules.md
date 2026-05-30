@@ -150,7 +150,7 @@ Claude Code does not write in the user's personal voice unless explicitly
 asked. CLAUDE.md entries, decision log notes, code comments, and status
 reports use neutral, precise language.
 
-The user's writing system prompt lives in writing-kit/system_prompt.md
+The user's writing system prompt lives in writing-kit/VOICE.md
 and is invoked manually for content the user will publish or send —
 READMEs, portfolio copy, PRD drafts. It is not active by default.
 

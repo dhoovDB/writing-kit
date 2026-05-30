@@ -13,7 +13,7 @@ This file is the priority-ordered backlog. The `daily-task.md` prompt reads it
 top-down: P1 before P2, with learning value and 1–2 hour scope as tiebreakers.
 Update before every commit.
 
-**Constraints live elsewhere.** Voice rules are in `system_prompt.md`; working
+**Constraints live elsewhere.** Voice rules are in `VOICE.md`; working
 norms are in `CLAUDE.md` and `prompts/globalrules.md`. Read those before picking
 a task — this file lists *what*, not *how*.
 
@@ -40,12 +40,12 @@ a task — this file lists *what*, not *how*.
   specific decision and is telling you about it" — yet `prd_template.md` is the
   only template that exists.
 - **Done when:** `prompts/decision-memo.md` exists; it leads with the decision and
-  follows the `system_prompt.md` structure (point → why → data → so-what).
+  follows the `VOICE.md` structure (point → why → data → so-what).
 
 ### exec-update.md — executive status update scaffold
 - **What:** A scaffold for a status / stakeholder update that enforces the
   "executive audience: point + one data point + ask" rule.
-- **Why:** `system_prompt.md` defines the exec-audience rules in detail but
+- **Why:** `VOICE.md` defines the exec-audience rules in detail but
   provides no template that applies them.
 - **Done when:** `prompts/exec-update.md` exists; output is point + one data point
   + ask, with everything else pushed to backup.
@@ -59,7 +59,7 @@ P-tier when ready.
 
 - **email-reply.md** (P3 prompt) — voice-aware reply that respects the "verbal vs.
   written register" rules; uses the Gmail MCP.
-- **personal-voice** (skill) — wrap `system_prompt.md` as a loadable skill so any
+- **personal-voice** (skill) — wrap `VOICE.md` as a loadable skill so any
   repo can pull the voice and generic skills defer to it.
 - **define-then-translate** (skill) — the signature technical-definition →
   plain-language pattern, reusable beyond writing-kit.
@@ -102,9 +102,4 @@ the other portfolio repos use.
 
 ---
 
-*Stale-name note: this file, `README.md`, and `prompts/globalrules.md` still
-reference `system_prompt.md` in a few places; the file on disk is `VOICE.md`.
-Worth fixing in a follow-up cleanup pass — left out of this commit to keep
-the scope tight.*
-
-*Last updated: 2026-05-29*
+*Last updated: 2026-05-30 (stale `system_prompt.md` → `VOICE.md` references cleaned up across `prompts/globalrules.md` and this file; banking-empire/CLAUDE.md updated in the same sweep)*
