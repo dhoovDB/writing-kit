@@ -9,7 +9,7 @@ builds toward a complete, self-checking toolkit — not just a voice to write in
 but the tools to verify a draft matches it and to reuse the voice everywhere it
 is needed.
 
-This file is the priority-ordered backlog. The `daily-task.md` prompt reads it
+This file is the priority-ordered backlog. The `dailytask.md` prompt reads it
 top-down: P1 before P2, with learning value and 1–2 hour scope as tiebreakers.
 Update before every commit.
 
@@ -87,6 +87,34 @@ the named sections. The prompt is thin glue; `VOICE.md` remains the single
 source of truth. Same shape as the config-is-data / engine-is-rules pattern
 the other portfolio repos use.
 
+### 2026-05-30 — Source/destination filename parity + sync script
+
+The slash-command source-of-truth (`prompts/`) and the live install
+(`~/.claude/commands/`) were related by hand-copy and quietly disagreeing on
+one filename: source held `daily-task.md` (hyphenated), destination held
+`dailytask.md` (no hyphen, matching the `/dailytask` invocation). Working
+fine until somebody touched the source name and the destination didn't
+follow. Two changes lock this down:
+
+- **`prompts/daily-task.md` → `prompts/dailytask.md`.** Rename via `git mv`
+  so history is preserved. Source and destination filenames are now
+  identical for all three live commands (`globalrules`, `dailytask`,
+  `codereview`). No mapping needed inside the sync script — pure file copy.
+  The one ROADMAP reference to `daily-task.md` (intro paragraph naming the
+  prompt that reads this file) updated in lockstep.
+- **`scripts/sync-commands.ps1`** is the canonical sync path. PowerShell
+  (matches the user's primary shell); minimum behavior plus skip-if-identical
+  via SHA-256 hash comparison (avoids spurious mtime updates; safe to run on
+  any schedule). Promoting a new prompt to a live slash command means adding
+  one entry to the script's `$commands` list — a deliberate one-line act, not
+  a side-effect of having the prompt file exist.
+
+The 2026-05-30 `VOICE.md` rename incident is the canonical case this prevents.
+A regex sweep that morning silently missed seven backslash-escaped references
+in `README.md` and `CLAUDE.md`; the live `/globalrules` install kept pointing
+at the old filename until a manual re-sync caught it. With the script in
+place, the sync step becomes muscle memory after any prompt edit.
+
 ---
 
 ## Completed
@@ -102,4 +130,4 @@ the other portfolio repos use.
 
 ---
 
-*Last updated: 2026-05-30 (stale `system_prompt.md` → `VOICE.md` references cleaned up across `prompts/globalrules.md` and this file; banking-empire/CLAUDE.md updated in the same sweep)*
+*Last updated: 2026-05-30 (VOICE.md rename sweep completed; source/destination filename parity for slash commands established; `scripts/sync-commands.ps1` added as canonical sync path)*

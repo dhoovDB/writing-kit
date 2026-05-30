@@ -125,6 +125,27 @@ When your style evolves, update `VOICE.md` first. The examples will
 drift out of date if you don't update them too — treat `examples/` as a test
 suite, not documentation.
 
+**Syncing slash commands to the live install.** The source of truth for the
+slash commands `/globalrules`, `/dailytask`, and `/codereview` lives in this
+repo's `prompts/` directory. The active versions Claude Code actually loads
+live at `~/.claude/commands/`. Without a sync step the two drift apart — the
+canonical incident is the 2026-05-30 `VOICE.md` rename, which left the live
+copy of `/globalrules` pointing at the old filename for hours.
+
+After editing any of those three prompt files, run:
+
+```powershell
+.\scripts\sync-commands.ps1
+```
+
+The script is idempotent (skips when source and destination match
+byte-for-byte) so it's safe to run on a schedule or as a habit after any
+edit. Filenames match between source and destination by design — see the
+2026-05-30 decision-log entry for the `daily-task.md` → `dailytask.md`
+rename that established that parity. Promoting a new prompt to a live slash
+command means: add an entry to `$commands` in `sync-commands.ps1`, add a
+row to the portfolio workflow table, then run the script.
+
 \---
 
 ## Diligence statement
