@@ -21,16 +21,6 @@ a task — this file lists *what*, not *how*.
 
 ## Now (P1)
 
-### voice-check.md — run examples/ as a test suite
-- **What:** A prompt that feeds a draft through the `system_prompt.md` rules and
-  the "what a bad output looks like" checklist, then scores voice drift and names
-  specific violations.
-- **Why:** `CLAUDE.md` calls `examples/` "a test suite, not documentation," but
-  nothing runs that test today. This is the missing Discernment tool.
-- **Done when:** `prompts/voice-check.md` exists; running it against
-  `example_input.md` reproduces the judgments in `example_output.md`; it flags the
-  banned patterns (em-dash, "leverage," hedging, buried point) when they appear.
-
 ### rewrite-in-voice.md — saved editing prompt
 - **What:** A reusable prompt for the "rewrite this in my voice, keep all the
   facts, change structure and tone" workflow.
@@ -80,4 +70,41 @@ P-tier when ready.
 
 ---
 
-*Last updated: 2026-05-25*
+## Decision log
+
+*Project and architectural decisions live here. Changes to this repo's CLAUDE.md
+are logged in CLAUDE.md, not here.*
+
+### 2026-05-29 — voice-check.md loads VOICE.md at runtime, doesn't hardcode the rules
+
+The first instinct on a voice-check prompt is to enumerate the banned words and
+constructions inline. That makes the prompt thin and self-contained, but it
+silently goes stale every time `VOICE.md` evolves — the prompt and the rubric
+drift apart, and `examples/` (the test suite) stops catching real violations.
+`voice-check.md` therefore re-reads `VOICE.md` fresh at the start of every run
+and treats its own hard-fail / soft-flag lists as *derived* scaffolding from
+the named sections. The prompt is thin glue; `VOICE.md` remains the single
+source of truth. Same shape as the config-is-data / engine-is-rules pattern
+the other portfolio repos use.
+
+---
+
+## Completed
+
+- [x] **voice-check.md — run examples/ as a test suite** (2026-05-29) —
+      `prompts/voice-check.md` lives in the prompt library. Loads `VOICE.md`
+      at runtime, scans for hard-fail constructions (`not X but Y`, em-dashes,
+      "very", filler words, throat-clearing openers, hedging, buried point)
+      and soft flags, quotes offending sentences in full, names the rule and
+      its `VOICE.md` section, and recommends a next step. Pairs with the
+      forthcoming `rewrite-in-voice.md`. See the 2026-05-29 decision log entry
+      for the runtime-loading choice.
+
+---
+
+*Stale-name note: this file, `README.md`, and `prompts/globalrules.md` still
+reference `system_prompt.md` in a few places; the file on disk is `VOICE.md`.
+Worth fixing in a follow-up cleanup pass — left out of this commit to keep
+the scope tight.*
+
+*Last updated: 2026-05-29*
