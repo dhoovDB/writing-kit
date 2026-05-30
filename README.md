@@ -6,14 +6,14 @@ A personal writing system built around a specific communication style, calibrate
 
 |File|Purpose|
 |-|-|
-|`system\_prompt.md`|Load into any Claude session to write in the right voice|
+|`VOICE.md`|Load into any Claude session to write in the right voice|
 |`prd\_template.md`|PRD skeleton structured around Problem / Solution / Go to Market|
 |`examples/`|Worked example showing the system prompt in use|
 |`CLAUDE.md`|Context file for Claude Code users — start here|
 
 ## How to use
 
-**Claude.ai:** Paste `system\_prompt.md` at the start of a conversation, or upload it to a Project so it persists. Then describe the task.
+**Claude.ai:** Paste `VOICE.md` at the start of a conversation, or upload it to a Project so it persists. Then describe the task.
 
 **Claude Code:** `CLAUDE.md` is read automatically. See it for full usage instructions.
 

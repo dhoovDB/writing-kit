@@ -7,16 +7,16 @@ It is not a general-purpose style guide. It is calibrated to one person.
 
 |File|Purpose|
 |-|-|
-|`system\_prompt.md`|Drop this into any Claude conversation to get writing in the right voice|
+|`VOICE.md`|Drop this into any Claude conversation to get writing in the right voice|
 |`prd\_template.md`|PRD skeleton with voice-aware section prompts|
 |`examples/`|Input/output pair demonstrating the system prompt working|
 
 ## How to use
 
-**For a new doc:** Open a Claude conversation, paste the contents of `system\_prompt.md`
+**For a new doc:** Open a Claude conversation, paste the contents of `VOICE.md`
 as a system prompt (or at the top of your first message), then describe what you need.
 
-**For editing existing writing:** Paste `system\_prompt.md`, then paste your draft with
+**For editing existing writing:** Paste `VOICE.md`, then paste your draft with
 the instruction: "Rewrite this in my voice. Keep all the facts. Change the structure
 and tone to match the style guide."
 
@@ -38,7 +38,7 @@ to a different competency:
 |D|What it means|Where it lives in this repo|
 |-|-|-|
 |**Delegation**|Decide what to hand off to AI vs. keep for yourself|You own the facts, decisions, and judgment. AI drafts the prose.|
-|**Description**|Communicate intent clearly|`system\_prompt.md` is your standing description — load it before every writing session|
+|**Description**|Communicate intent clearly|`VOICE.md` is your standing description — load it before every writing session|
 |**Discernment**|Evaluate outputs critically|`examples/` is your reference point. Ask: would I send this? Does it sound like me?|
 |**Diligence**|Take responsibility for what you publish|See diligence statement below|
 
@@ -121,7 +121,7 @@ a new task type is introduced.
 
 ## Maintenance
 
-When your style evolves, update `system\_prompt.md` first. The examples will
+When your style evolves, update `VOICE.md` first. The examples will
 drift out of date if you don't update them too — treat `examples/` as a test
 suite, not documentation.
 
