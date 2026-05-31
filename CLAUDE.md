@@ -8,6 +8,8 @@ It is not a general-purpose style guide. It is calibrated to one person.
 |File|Purpose|
 |-|-|
 |`VOICE.md`|Drop this into any Claude conversation to get writing in the right voice|
+|`prompts/`|Reusable prompts. `globalrules.md`, `dailytask.md`, and `codereview.md` are also installed as live slash commands — after editing any of those three, run `scripts/sync-commands.ps1` to propagate. `voice-check.md` is in-source-only for now.|
+|`scripts/`|Maintenance utilities. `sync-commands.ps1` copies the three live prompts to `~/.claude/commands/`; idempotent, safe to re-run.|
 |`prd\_template.md`|PRD skeleton with voice-aware section prompts|
 |`examples/`|Input/output pair demonstrating the system prompt working|
 
