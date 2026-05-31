@@ -6,8 +6,8 @@
 # tracked source drifts out of sync with what actually runs in sessions.
 # Last drift incident: VOICE.md rename, 2026-05-30.
 #
-# Run after editing any of the listed commands below. Idempotent — only
-# copies when source and destination differ.
+# Run after editing any of the listed commands below. Idempotent --
+# only copies when source and destination differ.
 #
 # Promoting a new prompt to a live slash command: add an entry to $commands,
 # add a row to the workflow table in C:\Projects\CLAUDE.md (or the writing-kit
@@ -20,8 +20,8 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $sourceDir = (Resolve-Path (Join-Path $scriptDir "..\prompts")).Path
 $destDir   = Join-Path $HOME ".claude\commands"
 
-# Filenames are identical at both ends (intentional — see writing-kit ROADMAP
-# decision log 2026-05-30 for the daily-task.md → dailytask.md rename that
+# Filenames are identical at both ends (intentional -- see writing-kit ROADMAP
+# decision log 2026-05-30 for the daily-task.md -> dailytask.md rename that
 # established parity).
 $commands = @(
     "globalrules.md",
@@ -41,7 +41,7 @@ foreach ($name in $commands) {
     $dest = Join-Path $destDir   $name
 
     if (-not (Test-Path $src)) {
-        Write-Warning "Missing source: $src — skipping."
+        Write-Warning "Missing source: $src -- skipping."
         continue
     }
 
