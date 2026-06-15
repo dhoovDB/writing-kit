@@ -23,6 +23,11 @@ as a system prompt (or at the top of your first message), then describe what you
 the instruction: "Rewrite this in my voice. Keep all the facts. Change the structure
 and tone to match the style guide."
 
+**For product thinking (what to build, roadmaps, discovery, the reasoning behind a
+PRD):** Load `product-management-philosophy.md` together with `VOICE.md`. The first
+decides what's worth building and which doc you're in; the second makes it read like
+you. For pure writing with no product decision behind it, `VOICE.md` alone is enough.
+
 **For PRDs specifically:** Use `prd\_template.md`. The section prompts are written to
 pull the right information out of you, not just label blank boxes.
 
