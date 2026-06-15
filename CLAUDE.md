@@ -8,6 +8,7 @@ It is not a general-purpose style guide. It is calibrated to one person.
 |File|Purpose|
 |-|-|
 |`VOICE.md`|Drop this into any Claude conversation to get writing in the right voice|
+|`product-management-philosophy.md`|Product-thinking companion to `VOICE.md`. Governs *what* to build and *which* doc you are writing (Problem / Solution / GTM, discovery, build-or-buy). Load it for product work; `VOICE.md` alone covers pure writing. The bottom-line summary is mirrored in both files.|
 |`prompts/`|Reusable prompts. `globalrules.md`, `dailytask.md`, and `codereview.md` are also installed as live slash commands — after editing any of those three, run `scripts/sync-commands.ps1` to propagate. `voice-check.md` is in-source-only for now.|
 |`scripts/`|Maintenance utilities. `sync-commands.ps1` copies the three live prompts to `~/.claude/commands/`; idempotent, safe to re-run.|
 |`prd\_template.md`|PRD skeleton with voice-aware section prompts|

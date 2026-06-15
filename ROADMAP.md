@@ -115,6 +115,69 @@ in `README.md` and `CLAUDE.md`; the live `/globalrules` install kept pointing
 at the old filename until a manual re-sync caught it. With the script in
 place, the sync step becomes muscle memory after any prompt edit.
 
+### 2026-06-14 — VOICE.md author-leakage guard, self-violation cleanup, and product-management-philosophy.md split
+
+A working session adding voice markers and tone rules surfaced three
+structural problems in `VOICE.md`, fixed in order:
+
+- **Author leakage.** The file leaned on Stephenson, Adams, and Twain
+  throughout but never forbade them from reaching the output, and
+  modeled the leakage in three in-instruction flourishes (the "42"
+  hedge example, the Vogon-poem consequence close, the Total Perspective
+  Vortex diligence close). Added a top-level "Keep the authors out of
+  the output" guard; rewrote the three flourishes author-free; kept the
+  technique-naming references (define-then-translate, the zoom-out
+  "Stephenson move"); changed the Usage iteration dials from author
+  names to techniques ("more absurdist / zoom-out / cut-to-the-bone").
+
+- **Self-violations.** The file broke its own "no 'not X, it is Y'
+  contrast" rule in five prose spots (Cagan x2, Test-and-learn,
+  executive audience, humanity-first marker), all rewritten to state
+  the stronger claim. Two em-dashes in the PM sub-headers went away
+  with the restructure.
+
+- **Redundancy.** The wonder/humor idea had spread across four
+  overlapping passages; cut the duplicate "Wonder without performing
+  it" marker, folded its one unique line into the Do-not prohibition,
+  tightened two others, merged two near-identical brevity bullets, and
+  dropped a repeated not-X scan from the Usage section.
+
+**product-management-philosophy.md split.** The entire
+Product-management-philosophy block (Reuse-over-rebuild, Davis, Cagan,
+Test-and-learn, product-challenge) moved to a new
+`product-management-philosophy.md`. The name is spelled out in full to
+keep it from reading as *project* management. `VOICE.md` governs how you
+write; `product-management-philosophy.md` governs what you decide to
+build. The five-bullet bottom line is mirrored in both files; `VOICE.md`
+keeps a pointer. `CLAUDE.md` and `README.md` file tables document the
+new file and when to load which.
+
+### 2026-06-14 — product-management-philosophy.md: founding sources added
+
+Built out the new file with three named sources behind the product
+philosophy, each parsed from material the user supplied and distilled
+into the file's voice:
+
+- **Lean Startup (Eric Ries).** Build-Measure-Learn, the MVP, validated
+  learning, pivot-or-persevere, and the "should we build this" reframe.
+  Placed before Test-and-learn, which was trimmed of the
+  smallest-experiment and output-is-motion lines that Lean Startup now
+  covers.
+- **First-principles thinking.** Reason from what is true, break the
+  goal into levers, question each, go to the source. The Five Whys
+  (parked from Lean Startup) folded in as the "keep asking why until you
+  hit the floor" move. Placed after Reuse-over-rebuild with a one-line
+  bridge: reuse is the default, first principles pressure-tests it.
+- **The 4 Disciplines of Execution (4DX).** The execution phase the doc
+  lacked: one or two WIGs, lead measures, a scoreboard, a weekly
+  cadence, all against the whirlwind. Placed last, capping the arc that
+  runs from thinking through deciding and validating to executing.
+
+The mirrored five-bullet bottom line gained two bullets (Lean Startup
+folded into the hypothesis bullet; 4DX lead measures added) and stayed
+in sync across `product-management-philosophy.md` and `VOICE.md`.
+First-principles got no bottom-line bullet, to hold the BLUF lean.
+
 ---
 
 ## Completed
@@ -130,4 +193,4 @@ place, the sync step becomes muscle memory after any prompt edit.
 
 ---
 
-*Last updated: 2026-05-30 (VOICE.md rename sweep completed; source/destination filename parity for slash commands established; `scripts/sync-commands.ps1` added as canonical sync path)*
+*Last updated: 2026-06-14 (VOICE.md overhaul + extraction to `product-management-philosophy.md`; then the new file built out with founding sources: Lean Startup, first-principles thinking, and 4DX, with the bottom line kept in sync across both files)*

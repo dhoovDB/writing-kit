@@ -7,6 +7,7 @@ A personal writing system built around a specific communication style, calibrate
 |File|Purpose|
 |-|-|
 |`VOICE.md`|Load into any Claude session to write in the right voice|
+|`product-management-philosophy.md`|Product-thinking companion. `VOICE.md` is how you write; this is what you decide to build. Load for PRDs, roadmaps, discovery, and build-or-buy calls.|
 |`prd\_template.md`|PRD skeleton structured around Problem / Solution / Go to Market|
 |`examples/`|Worked example showing the system prompt in use|
 |`CLAUDE.md`|Context file for Claude Code users — start here|
@@ -19,7 +20,7 @@ A personal writing system built around a specific communication style, calibrate
 
 ## Philosophy
 
-Built on the [AI Fluency Framework](https://aifluencyframework.org) (Delegation, Description, Discernment, Diligence) and the PM frameworks of Nils Davis and Marty Cagan. AI drafts, but you make the decisions.
+Built on the [AI Fluency Framework](https://aifluencyframework.org) (Delegation, Description, Discernment, Diligence) and the PM frameworks of Nils Davis and Marty Cagan, captured in `product-management-philosophy.md`. AI drafts, but you make the decisions.
 
 ## Diligence
 
