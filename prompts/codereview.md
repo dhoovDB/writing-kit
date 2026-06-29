@@ -126,4 +126,25 @@ grep "^-" /tmp/current.diff | grep -E "router\.(get|post|put|delete|patch)\("
 
 ---
 
+## Step 7 — Classify any failures
+
+For each MUST FIX or SHOULD FIX item, tag it with a failure category. 
+The category determines what kind of fix prevents a recurrence:
+
+- missing context — the code lacked information it needed (a config 
+  value, a type, an upstream contract)
+- layer violation — logic landed in the wrong architectural layer
+- bad assumption — the code assumed something untrue about inputs, 
+  state, or behavior
+- incomplete output — the change does part of the job and silently 
+  skips the rest
+- schema or format failure — output does not match the expected shape
+- security exposure — a credential, injection vector, or data leak
+- scope creep — the change mixes unrelated work into one commit
+
+The category travels with the fix into any memory or roadmap note, so 
+a recurring failure type becomes visible across sessions.
+
+---
+
 ## Output format
