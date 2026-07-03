@@ -21,6 +21,53 @@ a task — this file lists *what*, not *how*.
 
 ## Now (P1)
 
+### Review gates — grill-me at plan time, adversarial review before push
+- **What:** Wire two claude-skills reviewers into the standing workflow as
+  gates, not suggestions. Four pieces:
+  1. **`prompts/adversarialreview.md`** — new `/adversarialreview` command.
+     Thin wrapper that loads
+     `C:\Projects\claude-skills\engineering-team\skills\adversarial-reviewer\SKILL.md`
+     at runtime and runs it against the argument (`--diff <range>`, a file,
+     or staged/unstaged by default). Thin on purpose — same
+     runtime-loading choice as `voice-check.md` (see 2026-05-29 decision
+     log): the SKILL.md in claude-skills stays the single source of truth.
+     Add one entry to `sync-commands.ps1`'s `$commands` list (the
+     deliberate one-line act, per the 2026-05-30 decision).
+  2. **`prompts/dailytask.md`** — when the selected task is plan-shaped
+     (design session, new feature, anything that would get a PRD or a
+     plan-mode session), the task *starts* with a grill-me pass: load
+     `claude-skills/engineering/grill-me`, walk the plan's decision tree
+     one question at a time, lock the branches, then implement.
+  3. **`prompts/globalrules.md`** — two gate lines. Plan side: major work
+     gets grilled before the plan is approved. Push side: self-authored
+     multi-commit work gets `/adversarialreview` before `git push`.
+     "Major" = touched multiple files across layers, or anything that had
+     a plan. The trigger boundary is *before push*, not per commit —
+     per-commit is noise; one pass over a session's diff is the shape
+     that works.
+  4. **`CLAUDE.md` high-relevance skills list** — add both skills with
+     triggers (`grill-me`: stress-testing a plan or design before
+     building; `adversarial-reviewer`: before pushing self-authored work,
+     or whenever a review felt too easy). Neither is listed today.
+  Then run `scripts/sync-commands.ps1` and update the workflow-tooling
+  table in the portfolio root `CLAUDE.md` (unversioned — manual edit).
+- **Why:** 2026-07-03, banking-empire: an adversarial-reviewer pass over a
+  four-commit refactor caught a financial-correctness bug (setup costs
+  silently refunded via a stale React closure) that 100+ passing tests
+  agreed with, because the tests encoded the author's own false premise.
+  That is the self-review monoculture failing exactly as described, on a
+  repo with good test discipline. The fix is structural: the reviewer that
+  doesn't share the author's mental model has to be a standing gate, and
+  its plan-time twin (grill-me) covers the failure class review can't —
+  building the wrong thing cleanly. Skills that only fire when remembered
+  don't fire.
+- **Done when:** `/adversarialreview` is live in `~/.claude/commands` and
+  listed in the sync script; `dailytask.md` and `globalrules.md` carry the
+  gates; both skills appear in the CLAUDE.md high-relevance list; each
+  gate has fired once on real work (the banking-empire UI pass is the
+  natural first test — grill-me on its design session, adversarial review
+  before its deploy).
+
 ### rewrite-in-voice.md — saved editing prompt
 - **What:** A reusable prompt for the "rewrite this in my voice, keep all the
   facts, change structure and tone" workflow.
@@ -193,4 +240,6 @@ First-principles got no bottom-line bullet, to hold the BLUF lean.
 
 ---
 
-*Last updated: 2026-06-14 (VOICE.md overhaul + extraction to `product-management-philosophy.md`; then the new file built out with founding sources: Lean Startup, first-principles thinking, and 4DX, with the bottom line kept in sync across both files)*
+*Last updated: 2026-07-03 (new P1: review gates — `/adversarialreview` command,
+grill-me wired into dailytask/globalrules, both skills added to the
+high-relevance list; prompted by the banking-empire refund-bug catch)*
