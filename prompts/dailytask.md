@@ -56,3 +56,11 @@ Return:
 - 1-2 likely failure modes and mitigations
 
 Wait for approval before building.
+
+If the selected task is plan-shaped — a design session, a new feature, or
+anything that would get a PRD or a plan-mode session — the task starts
+with a grill-me pass once approved. Load the skill at
+C:\Projects\claude-skills\engineering\grill-me\skills\grill-me\SKILL.md,
+walk the plan's decision tree one question at a time with a recommended
+answer for each, and lock the branches before implementing. Bug fixes and
+small polish tasks skip this step.

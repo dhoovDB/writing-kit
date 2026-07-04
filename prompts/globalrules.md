@@ -144,6 +144,22 @@ Order:
 
 ---
 
+## Review gates
+
+Two standing gates wired to the claude-skills library:
+
+- **Plan side.** Major work gets a grill-me pass before the plan is
+  approved: load the grill-me skill from claude-skills and walk the
+  plan's decision tree one question at a time, with a recommended
+  answer for each. "Major" means the work touches multiple files across
+  layers, or it has a plan at all.
+- **Push side.** Self-authored multi-commit work gets /adversarialreview
+  before `git push`. The boundary is before push, not per commit — one
+  pass over the session's diff. /codereview still runs per commit; the
+  two gates do not substitute for each other.
+
+---
+
 ## Voice
 
 Claude Code does not write in the user's personal voice unless explicitly

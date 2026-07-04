@@ -67,6 +67,14 @@ a task — this file lists *what*, not *how*.
   gate has fired once on real work (the banking-empire UI pass is the
   natural first test — grill-me on its design session, adversarial review
   before its deploy).
+- **Status (2026-07-04):** implementation shipped — all four pieces landed
+  (`adversarialreview.md` created; `dailytask.md`, `globalrules.md`,
+  `CLAUDE.md`, and `sync-commands.ps1` updated; sync run; portfolio
+  workflow table updated). One path correction from the spec above: the
+  grill-me SKILL.md actually lives at
+  `claude-skills/engineering/grill-me/skills/grill-me/SKILL.md` (nested
+  plugin layout), and the prompts reference that real path. Remaining for
+  done: each gate fires once on real work.
 
 ### rewrite-in-voice.md — saved editing prompt
 - **What:** A reusable prompt for the "rewrite this in my voice, keep all the
@@ -240,6 +248,6 @@ First-principles got no bottom-line bullet, to hold the BLUF lean.
 
 ---
 
-*Last updated: 2026-07-03 (new P1: review gates — `/adversarialreview` command,
-grill-me wired into dailytask/globalrules, both skills added to the
-high-relevance list; prompted by the banking-empire refund-bug catch)*
+*Last updated: 2026-07-04 (review gates P1 implemented: `/adversarialreview`
+live, grill-me wired into dailytask/globalrules, both skills in the
+high-relevance list; item stays open until each gate fires on real work)*

@@ -1,8 +1,9 @@
 # Syncs the live slash commands from this repo to ~/.claude/commands/.
 #
 # Why this script exists: the source of truth for /globalrules, /dailytask,
-# and /codereview lives in writing-kit/prompts/. The active versions Claude
-# Code actually loads live at ~/.claude/commands/. Without a sync step, the
+# /codereview, and /adversarialreview lives in writing-kit/prompts/. The
+# active versions Claude Code actually loads live at ~/.claude/commands/.
+# Without a sync step, the
 # tracked source drifts out of sync with what actually runs in sessions.
 # Last drift incident: VOICE.md rename, 2026-05-30.
 #
@@ -26,7 +27,8 @@ $destDir   = Join-Path $HOME ".claude\commands"
 $commands = @(
     "globalrules.md",
     "dailytask.md",
-    "codereview.md"
+    "codereview.md",
+    "adversarialreview.md"
 )
 
 if (-not (Test-Path $destDir)) {

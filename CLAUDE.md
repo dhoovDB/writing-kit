@@ -9,8 +9,8 @@ It is not a general-purpose style guide. It is calibrated to one person.
 |-|-|
 |`VOICE.md`|Drop this into any Claude conversation to get writing in the right voice|
 |`product-management-philosophy.md`|Product-thinking companion to `VOICE.md`. Governs *what* to build and *which* doc you are writing (Problem / Solution / GTM, discovery, build-or-buy). Load it for product work; `VOICE.md` alone covers pure writing. The bottom-line summary is mirrored in both files.|
-|`prompts/`|Reusable prompts. `globalrules.md`, `dailytask.md`, and `codereview.md` are also installed as live slash commands — after editing any of those three, run `scripts/sync-commands.ps1` to propagate. `voice-check.md` is in-source-only for now.|
-|`scripts/`|Maintenance utilities. `sync-commands.ps1` copies the three live prompts to `~/.claude/commands/`; idempotent, safe to re-run.|
+|`prompts/`|Reusable prompts. `globalrules.md`, `dailytask.md`, `codereview.md`, and `adversarialreview.md` are also installed as live slash commands — after editing any of them, run `scripts/sync-commands.ps1` to propagate. `voice-check.md` is in-source-only for now.|
+|`scripts/`|Maintenance utilities. `sync-commands.ps1` copies the live prompts to `~/.claude/commands/`; idempotent, safe to re-run.|
 |`prd\_template.md`|PRD skeleton with voice-aware section prompts|
 |`examples/`|Input/output pair demonstrating the system prompt working|
 
@@ -102,6 +102,10 @@ a new task type is introduced.
 - tdd-guide — TDD workflow, coverage gaps, Jest/Pytest/Vitest
 - senior-architect — system design, ADRs, architecture diagrams
 - performance-profiler — slow endpoints, memory leaks, perf budgets
+- grill-me — stress-testing a plan or design before building; the
+  plan-side gate for major work (see Review gates in /globalrules)
+- adversarial-reviewer — before pushing self-authored multi-commit work,
+  or whenever a review felt too easy; runs as /adversarialreview
 
 **PM craft**
 - create-prd — writing or reviewing a PRD or feature spec
@@ -134,13 +138,13 @@ drift out of date if you don't update them too — treat `examples/` as a test
 suite, not documentation.
 
 **Syncing slash commands to the live install.** The source of truth for the
-slash commands `/globalrules`, `/dailytask`, and `/codereview` lives in this
-repo's `prompts/` directory. The active versions Claude Code actually loads
-live at `~/.claude/commands/`. Without a sync step the two drift apart — the
+slash commands `/globalrules`, `/dailytask`, `/codereview`, and
+`/adversarialreview` lives in this repo's `prompts/` directory. The active
+versions Claude Code actually loads live at `~/.claude/commands/`. Without a sync step the two drift apart — the
 canonical incident is the 2026-05-30 `VOICE.md` rename, which left the live
 copy of `/globalrules` pointing at the old filename for hours.
 
-After editing any of those three prompt files, run:
+After editing any of those prompt files, run:
 
 ```powershell
 .\scripts\sync-commands.ps1
