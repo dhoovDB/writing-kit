@@ -88,6 +88,50 @@ a task — this file lists *what*, not *how*.
 
 ## Next (P2)
 
+### Workflow commands from the 2026-07-05 usage audit
+
+A transcript audit (226 prompts, 13 sessions, Jun 4–Jul 4) found three
+workflows that recur as ad-hoc prompts and should become live commands.
+All three follow the sync-commands.ps1 promotion path (add to `$commands`,
+add the portfolio workflow-table row, run the script) and are written
+mechanically — exact commands, exact output shapes, explicit stop points —
+so lower-cost models can run them reliably.
+
+**portfoliosync.md — `/portfoliosync`**
+- **What:** Read every active repo's `ROADMAP.md` and recent `git log`,
+  then refresh the Portfolio status section of `C:\Projects\CLAUDE.md`
+  (unversioned, manual edit) plus the Last-updated line. Report a diff-style
+  summary of what changed per repo before writing.
+- **Why:** The same aggregation has been done by hand at least three times
+  ("update CLAUDE.md in Projects with the latest info from the roadmap
+  files from all active projects," 2026-06-05, and again since). Every
+  session that starts from a stale portfolio status pays for it.
+- **Done when:** `prompts/portfoliosync.md` exists, is in the sync script,
+  and one run produces a correct refresh reviewed against the repos.
+
+**sessionclose.md — `/sessionclose`**
+- **What:** The "pausing here" ritual as a command: save memory-worthy
+  items from the session, state exactly where work stands, name the next
+  task, end with the standard status block. Consider wrapping
+  claude-skills' `handoff` skill (engineering/handoff) at runtime, same
+  thin-wrapper pattern as /adversarialreview.
+- **Why:** The close-out is currently prompted manually ("pausing here,
+  leave any memories necessary," "what should be saved before /compact").
+  A clean close is what makes the next session's pickup cheap — especially
+  across models.
+- **Done when:** `prompts/sessionclose.md` exists, is in the sync script,
+  and a real session close runs through it.
+
+**forkrefresh.md — `/forkrefresh`**
+- **What:** The skill-library fork sync as a command: check drift via
+  `gh api repos/dhoovDB/<repo>/compare/...`, fast-forward claude-skills,
+  fetch/rebase/force-with-lease pm-skills (which carries local-only
+  commits), verify, report. Force-push always requires explicit approval.
+- **Why:** First done 2026-07-03 with discovery cost; recurs every few
+  weeks by nature. The procedure is fully mechanical once written down.
+- **Done when:** `prompts/forkrefresh.md` exists, is in the sync script,
+  and one refresh cycle runs through it end-to-end.
+
 ### decision-memo.md — decision memo template
 - **What:** A voice-aware one-pager template for communicating a decision: the
   call, why, what changes, what's needed.
@@ -248,6 +292,6 @@ First-principles got no bottom-line bullet, to hold the BLUF lean.
 
 ---
 
-*Last updated: 2026-07-04 (review gates P1 implemented: `/adversarialreview`
-live, grill-me wired into dailytask/globalrules, both skills in the
-high-relevance list; item stays open until each gate fires on real work)*
+*Last updated: 2026-07-05 (P2: three workflow commands added from the
+usage audit — `/portfoliosync`, `/sessionclose`, `/forkrefresh` — each a
+recurring ad-hoc prompt promoted to a planned live command)*
