@@ -152,6 +152,11 @@ is the mechanism that makes them reproducible, testable, and serving-ready.
 `feature-pipeline-skill` does not mandate a specific stack. It teaches the
 pattern. The implementer picks the tools that fit.
 
+*(2026-07-11 decision: `feature-pipeline-skill` v1 targets Feast natively and
+idiomatically; "tool-aware, not tool-locked" survives in the skill's reference
+files, which teach the pattern, not in its generated code — see that repo's
+ROADMAP.md decision log.)*
+
 ---
 
 ## Regarding Robotics 
