@@ -277,6 +277,15 @@ folded into the hypothesis bullet; 4DX lead measures added) and stayed
 in sync across `product-management-philosophy.md` and `VOICE.md`.
 First-principles got no bottom-line bullet, to hold the BLUF lean.
 
+### 2026-09-27 — /codereview skipped for markdown-only commits
+
+`globalrules.md` "Before every commit" gains an exception: commits that
+touch only `.md` files skip /codereview. Its architecture, security, test
+and breaking-change checks have nothing to inspect in prose. The
+commit-discipline check (one logical change, ROADMAP updated) still
+applies. Prompted by a ROADMAP-only decisions commit in
+feature-pipeline-skill.
+
 ---
 
 ## Completed
@@ -292,6 +301,5 @@ First-principles got no bottom-line bullet, to hold the BLUF lean.
 
 ---
 
-*Last updated: 2026-07-05 (P2: three workflow commands added from the
-usage audit — `/portfoliosync`, `/sessionclose`, `/forkrefresh` — each a
-recurring ad-hoc prompt promoted to a planned live command)*
+*Last updated: 2026-09-27 (decision log: /codereview skipped for
+markdown-only commits)*

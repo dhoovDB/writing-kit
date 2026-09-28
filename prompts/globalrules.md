@@ -136,6 +136,10 @@ Run /codereview before committing any task. This is not optional —
 it is the last step before approval. The commit discipline gate does
 not open until /codereview has run and all MUST FIX items are resolved.
 
+Exception: commits that touch only `.md` files skip /codereview. The
+commit-discipline check (one logical change, ROADMAP updated) still
+applies.
+
 Order:
 1. Task complete
 2. /codereview — fix any blockers
