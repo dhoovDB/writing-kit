@@ -71,14 +71,25 @@ When in doubt, ask one clarifying question rather than guess.
 
 ## Status reporting
 
-Every task summary ends with this block — no exceptions:
+End a reply with this block **when something changed**: the turn wrote,
+moved or deleted files, committed or pushed, or finished a task. Skip it for
+questions, explanations and progress updates where nothing changed.
 
-WRITTEN TO DISK: [every file created, modified, or deleted]
-ROADMAP.md UPDATED: [yes — what changed / no changes needed / NOT YET]
-GIT STATUS: [untracked / modified not staged / staged / committed / pushed]
-NEXT STEP: [one sentence — what happens next and who acts]
+```
+Files:   3 changed — ROADMAP.md, NOTES.md, determinism.py
+Roadmap: updated — Phase 1 marked done
+Git:     committed 063ee73 (local only)
+Next:    you review spike/NOTES.md
+```
 
-Never use "done" or "complete" without this block following immediately.
+- One short line per field. Files by name, no paths unless a name is
+  ambiguous; more than 4 → the count plus "listed above".
+- Roadmap: `updated — <what>` / `not needed` / `NOT YET`.
+- Git: the state that matters (modified / committed `<hash>` / pushed / local
+  only).
+- Next: one sentence — what happens next and who acts.
+
+Never call a task that changed files "done" or "complete" without the block.
 Never assume a file was written, committed, or pushed unless the relevant
 command ran and returned no errors in this session.
 

@@ -286,6 +286,16 @@ commit-discipline check (one logical change, ROADMAP updated) still
 applies. Prompted by a ROADMAP-only decisions commit in
 feature-pipeline-skill.
 
+
+### 2026-10-05 — Status block: compact, and only when something changed
+
+The end-of-reply status block had become the hardest part of each reply to
+skim: four long labels, full paths, and present even when nothing changed.
+New rule in `globalrules.md` (and the global `~/.claude/CLAUDE.md`): four short
+fields (`Files` / `Roadmap` / `Git` / `Next`), one line each, file names not
+paths, and shown only when the turn wrote files, committed, pushed or finished
+a task. The truthfulness rule (never claim an unrun write or push) is
+unchanged.
 ---
 
 ## Completed
@@ -301,5 +311,4 @@ feature-pipeline-skill.
 
 ---
 
-*Last updated: 2026-09-27 (decision log: /codereview skipped for
-markdown-only commits)*
+*Last updated: 2026-10-05 (decision log: compact status block)*
