@@ -33,23 +33,39 @@ because writing-kit is the portfolio hub for working conventions.
 2. **`## What this builds toward`** — a short outcome statement: what the repo is
    building toward and how its phases tighten that loop. Lead with the user/owner
    outcome, not a feature list.
-3. **Optional: `## Guiding principles` and/or `## Definition of done`** — include
+3. **`## Current status (YYYY-MM-DD)`** — required. Four one-line fields: Phase,
+   Next (and who acts), Open decisions, Blockers. Rewrite it in place on every
+   commit that touches the roadmap; it is a snapshot, not a log. This section is
+   the one home for the repo's current state. The portfolio `CLAUDE.md` points
+   here instead of restating it.
+4. **Optional: `## Guiding principles` and/or `## Definition of done`** — include
    where they earn their place (e.g. a product with a hard v1 bar). Use these
    exact headers when present.
-4. **The work** — the body, under whichever scheme fits (see "Schemes"). Must be
+5. **The work** — the body, under whichever scheme fits (see "Schemes"). Must be
    ordered highest-priority-first. New items use the item framing below.
-5. **`## Decision log`** — project / architectural decisions only. Dated entries,
+6. **`## Decision log`** — project / architectural decisions only. Dated entries,
    newest or grouped by date. Open with the pointer note:
    *"Project and architectural decisions live here. Changes to this repo's
    CLAUDE.md are logged in CLAUDE.md, not here."* Omit the section entirely if the
    repo has no such decisions yet — don't create an empty log.
-6. **`## Completed`** — dated, for repos that track completion in-roadmap. Inline
+7. **`## Completed`** — dated, for repos that track completion in-roadmap. Inline
    `✅ SHIPPED (date)` markers on a versioned scheme are an acceptable substitute;
    if you use a section, use this header.
-7. **`## Cut ideas`** — a `| Idea | Reason cut |` table. Optional; use this header
+8. **`## Cut ideas`** — a `| Idea | Reason cut |` table. Optional; use this header
    when present.
-8. **Footer** — `*Last updated: <YYYY-MM-DD>*`. Update it on every commit that
+9. **Footer** — `*Last updated: <YYYY-MM-DD>*`. Update it on every commit that
    touches the roadmap (globalrules already requires the roadmap update itself).
+
+---
+
+## Size and archiving
+
+Every session reads the roadmap, so its length is a recurring cost. Keep it under
+about **300 lines**. Past that, move finished phases or versions, `Completed`
+items, and decision-log entries that no longer constrain current work into
+`ROADMAP-ARCHIVE.md` in the same repo. Leave a one-line pointer where they were.
+Move entries verbatim; archiving is relocation, not rewriting. Do it as its own
+markdown-only commit.
 
 ---
 
@@ -107,6 +123,13 @@ carries just the pointer note, not an empty log.
 <One or two short paragraphs: the outcome this repo drives toward, and how its
 phases tighten that loop.>
 
+## Current status (YYYY-MM-DD)
+
+- **Phase:** <where the work stands, with the last relevant commit>
+- **Next:** <the next step, and who acts>
+- **Open decisions:** <none, or the questions waiting on the owner>
+- **Blockers:** <none, or what is stuck>
+
 ---
 
 ## <SHORT TERM | v1 | Now (P1) | 1. First build section>
@@ -147,10 +170,10 @@ are logged in CLAUDE.md, not here.*
 *Last updated: YYYY-MM-DD*
 ```
 
-Sections 5–7 (Decision log, Completed, Cut ideas) are include-where-relevant. The
-title, "What this builds toward," the work body, and the footer are required in
-every roadmap.
+Sections 6–8 (Decision log, Completed, Cut ideas) are include-where-relevant. The
+title, "What this builds toward," "Current status," the work body, and the footer
+are required in every roadmap.
 
 ---
 
-*Last updated: 2026-05-25*
+*Last updated: 2026-10-10 (Current status section; size and archiving rule)*

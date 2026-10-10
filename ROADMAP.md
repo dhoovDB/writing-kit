@@ -296,6 +296,28 @@ fields (`Files` / `Roadmap` / `Git` / `Next`), one line each, file names not
 paths, and shown only when the turn wrote files, committed, pushed or finished
 a task. The truthfulness rule (never claim an unrun write or push) is
 unchanged.
+
+### 2026-10-10 — ROADMAP template: Current status section, size limit
+
+A check of `ROADMAP-TEMPLATE.md` against spec-driven development practice
+(spec-kit, Kiro) found two changes worth making for this portfolio:
+
+- **`## Current status` is now required**, right after "What this builds
+  toward": four one-line fields (Phase, Next, Open decisions, Blockers),
+  rewritten in place on each roadmap commit. Repo state was split between each
+  ROADMAP and long entries in the untracked portfolio `CLAUDE.md`, which had
+  already drifted. The ROADMAP section is now the single home for it.
+- **Size and archiving rule:** past about 300 lines, finished phases and
+  decision entries that no longer constrain current work move verbatim to
+  `ROADMAP-ARCHIVE.md`, leaving a pointer. At the time, four roadmaps were
+  over 470 lines (banking-empire 1,043).
+
+Considered and not adopted: spec-kit's per-feature `spec.md` / `plan.md` /
+`tasks.md` (plan mode, grill-me and approval stops already cover it), formal
+acceptance-criteria syntax such as EARS ("Done when" plus evaluator-first is
+already testable), and a constitution or `AGENTS.md` file (`/globalrules`
+fills that role). rct2-agent-eval adopts the status section first.
+
 ---
 
 ## Completed
@@ -311,4 +333,4 @@ unchanged.
 
 ---
 
-*Last updated: 2026-10-05 (decision log: compact status block)*
+*Last updated: 2026-10-10 (decision log: ROADMAP template status section and size rule)*
