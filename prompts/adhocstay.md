@@ -26,6 +26,9 @@ cd /c/Projects/str-host-assistant && node --env-file=.env scripts/adhoc-stay.ts 
 
 Do not write to Supabase any other way.
 
+Put the label in single quotes so the shell can't expand anything in it, and write an
+apostrophe as `'\''`: `--label 'Pat O'\''Brien'`.
+
 ---
 
 ## Adding a stay
@@ -55,6 +58,7 @@ decide whether to `update` or `delete`.
 2. For a change, run `update` with only the fields that changed.
 3. For a removal, show the stay and **get a clear yes first**. It deletes the stay's
    checklist and notes for good, so this is the one step that always waits for approval.
+   Past briefings keep their text, so the label can remain there.
 
 ---
 
