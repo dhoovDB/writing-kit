@@ -1,7 +1,7 @@
 # Syncs the live slash commands from this repo to ~/.claude/commands/.
 #
 # Why this script exists: the source of truth for /globalrules, /dailytask,
-# /codereview, and /adversarialreview lives in writing-kit/prompts/. The
+# /codereview, /adversarialreview, and /adhocstay lives in writing-kit/prompts/. The
 # active versions Claude Code actually loads live at ~/.claude/commands/.
 # Without a sync step, the
 # tracked source drifts out of sync with what actually runs in sessions.
@@ -28,7 +28,8 @@ $commands = @(
     "globalrules.md",
     "dailytask.md",
     "codereview.md",
-    "adversarialreview.md"
+    "adversarialreview.md",
+    "adhocstay.md"
 )
 
 if (-not (Test-Path $destDir)) {

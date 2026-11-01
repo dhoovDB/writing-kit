@@ -9,7 +9,7 @@ It is not a general-purpose style guide. It is calibrated to one person.
 |-|-|
 |`VOICE.md`|Drop this into any Claude conversation to get writing in the right voice|
 |`product-management-philosophy.md`|Product-thinking companion to `VOICE.md`. Governs *what* to build and *which* doc you are writing (Problem / Solution / GTM, discovery, build-or-buy). Load it for product work; `VOICE.md` alone covers pure writing. The bottom-line summary is mirrored in both files.|
-|`prompts/`|Reusable prompts. `globalrules.md`, `dailytask.md`, `codereview.md`, and `adversarialreview.md` are also installed as live slash commands — after editing any of them, run `scripts/sync-commands.ps1` to propagate. `voice-check.md` is in-source-only for now.|
+|`prompts/`|Reusable prompts. `globalrules.md`, `dailytask.md`, `codereview.md`, `adversarialreview.md`, and `adhocstay.md` are also installed as live slash commands — after editing any of them, run `scripts/sync-commands.ps1` to propagate. `voice-check.md` is in-source-only for now.|
 |`scripts/`|Maintenance utilities. `sync-commands.ps1` copies the live prompts to `~/.claude/commands/`; idempotent, safe to re-run.|
 |`prd\_template.md`|PRD skeleton with voice-aware section prompts|
 |`examples/`|Input/output pair demonstrating the system prompt working|
@@ -138,7 +138,7 @@ drift out of date if you don't update them too — treat `examples/` as a test
 suite, not documentation.
 
 **Syncing slash commands to the live install.** The source of truth for the
-slash commands `/globalrules`, `/dailytask`, `/codereview`, and
+slash commands `/globalrules`, `/dailytask`, `/codereview`, `/adhocstay`, and
 `/adversarialreview` lives in this repo's `prompts/` directory. The active
 versions Claude Code actually loads live at `~/.claude/commands/`. Without a sync step the two drift apart — the
 canonical incident is the 2026-05-30 `VOICE.md` rename, which left the live

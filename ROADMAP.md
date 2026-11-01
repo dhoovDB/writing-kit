@@ -318,6 +318,15 @@ acceptance-criteria syntax such as EARS ("Done when" plus evaluator-first is
 already testable), and a constitution or `AGENTS.md` file (`/globalrules`
 fills that role). rct2-agent-eval adopts the status section first.
 
+### 2026-11-01 — `/adhocstay` lives here, though it serves one repo
+
+`/adhocstay` is the runbook for recording an off-platform stay on the STR Host
+Dashboard. It's specific to `str-host-assistant`, but that repo gitignores
+`.claude/`, so a repo-level command wouldn't be versioned, and it would only load
+in sessions opened in that folder. Keeping it in `prompts/` gives it version
+history and makes it available from any session. The prompt only drives
+`scripts/adhoc-stay.ts`; the logic stays in that repo.
+
 ---
 
 ## Completed
@@ -333,4 +342,4 @@ fills that role). rct2-agent-eval adopts the status section first.
 
 ---
 
-*Last updated: 2026-10-10 (decision log: ROADMAP template status section and size rule)*
+*Last updated: 2026-11-01 (decision log: `/adhocstay` command)*
