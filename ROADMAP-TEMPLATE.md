@@ -24,6 +24,8 @@ because writing-kit is the portfolio hub for working conventions.
 - **One decision log per concern.** Project and architectural decisions live in
   ROADMAP.md. Changes to a repo's `CLAUDE.md` live in that `CLAUDE.md`. Each side
   carries a one-line pointer to the other.
+- **READMEs have their own standard.** `README-TEMPLATE.md` sets the README spine,
+  including the required `## Tech stack` section.
 
 ---
 
@@ -176,4 +178,4 @@ are required in every roadmap.
 
 ---
 
-*Last updated: 2026-10-10 (Current status section; size and archiving rule)*
+*Last updated: 2026-11-02 (pointer to README-TEMPLATE.md)*
