@@ -18,7 +18,8 @@ because writing-kit is the portfolio hub for working conventions.
 - **Common spine, flexible body.** The required headers below are fixed. The
   product sections between them are free.
 - **Structure, not prose.** Adopting this template adds or renames sections. It
-  never rewrites or reorders existing README prose.
+  leaves existing README prose alone, except to correct a fact or to fold an
+  existing stack list into the Tech stack table.
 - **Facts come from the files.** Every version, service, and command in a README
   is checked against the manifests and code before it is written.
 - **Voice.** A README is content the owner publishes. Prose is drafted with
@@ -81,10 +82,12 @@ Rules:
   matter.
 - **No `||` inside a cell.** It breaks the table. Write version ranges in words.
 - **About 12 rows at most.** Mechanism belongs in Architecture.
-- **The runtime floor lives in Running locally**, taken from the lockfile
-  `engines` fields. State the exact minimum.
-- **Update the table in the same commit** that changes a manifest or lockfile, or
-  the file that sets a model ID.
+- **The runtime floor lives in Running locally**, taken from the manifest or
+  lockfile (`engines` in a JS repo, `requires-python` in a Python repo). State the
+  exact minimum, and name the excluded versions when the range has gaps.
+- **Check the table in any commit** that changes a manifest, a lockfile, or the
+  file that sets a model ID, and update it in that commit when a listed choice
+  changed. A patch bump changes nothing in the table.
 
 ---
 
@@ -122,7 +125,7 @@ Rules:
 |---|---|
 | Language | <language + major version> |
 | Framework | <framework + major version> |
-| Hosting/deploy | <where it runs> |
+| Hosting/deploy | <where it is served and how it ships> |
 | Testing/evals | <test runner> |
 | CI | <workflow, or none> |
 

@@ -156,7 +156,6 @@ so lower-cost models can run them reliably.
 - **Done when:** `prompts/exec-update.md` exists; output is point + one data point
   + ask, with everything else pushed to backup.
 
-
 ### Portfolio audit follow-ups (2026-11-02)
 
 - [ ] **Archive this roadmap**. **What:** move finished decision-log entries
@@ -173,10 +172,15 @@ so lower-cost models can run them reliably.
   no such file exists. **Why:** a dead pointer in a file other sessions load.
   **Done when:** the owner names the intended file and the line points to it.
 - [ ] **Refresh the example output headers**. **What:**
-  `examples/meridian-prd/output.md` cites `system_prompt.md`, and
+  `examples/meridian-prd/output.md` cites `system_prompt.md` and
+  `example_input.md` (the file is `input.md`), and
   `examples/NIM-explain/output.md` cites `voice.md`. **Why:** both predate the
   `VOICE.md` name, and `examples/` is treated as a test suite. **Done when:**
   both headers name current files.
+- [ ] **LICENSE files across the portfolio**. **What:** pick a license and add a
+  LICENSE file to each owned repo, this one included. **Why:** none of the owned
+  repos has one, and one README already states MIT. **Done when:** each owned
+  repo has a LICENSE file that matches its README.
 
 ---
 
@@ -366,15 +370,16 @@ a required `## Tech stack` table with a fixed row vocabulary. Major versions onl
 no counts, and every service the code calls is named, including the model ID for
 LLM calls.
 
-`globalrules.md` carries one line under Commit discipline: a commit that changes
-a manifest or lockfile updates the Tech stack in the same commit. That is the rule
-that keeps the table true, so it sits where every session reads it. Forks keep
+`globalrules.md` carries one rule under Commit discipline: a commit that changes
+a manifest, a lockfile, or the file that sets a model ID checks the Tech stack and
+updates it when a listed choice changed. That is the rule that keeps the table
+true, so it sits where every session reads it. Forks keep
 their upstream READMEs, and archived repos get a short archive notice instead of
 the template.
 
 Considered and not adopted: a fixed position for every section (the existing
-READMEs order them differently, and the template's principle is structure, not
-prose), and listing patch versions (they go stale on every dependency bump).
+READMEs order them differently, and the template changes structure while leaving
+prose alone), and listing patch versions (they go stale on every dependency bump).
 
 ---
 

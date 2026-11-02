@@ -196,8 +196,14 @@ templates, `ROADMAP.md`, and `strategy-review.md` (listed as in-source only).
 Fixed the `prd_template.md` filename, which rendered with a literal backslash,
 and a stray escaped horizontal rule.
 
-Two earlier changes to this file were never logged, recorded here as a backfill:
+Several earlier changes to this file were never logged. Recorded here as a
+backfill, with the ROADMAP entry or commit that describes each:
 
+- **2026-05-30:** `prompts/` and `scripts/` added to the file table, the sync
+  script documented, and stale `VOICE.md` references fixed (ROADMAP decision log,
+  2026-05-30).
+- **2026-06-14:** `product-management-philosophy.md` added to the file table and
+  How to use (ROADMAP decision log, 2026-06-14).
 - **2026-07-04:** grill-me and adversarial-reviewer added to the high-relevance
   skills list, and `/adversarialreview` added to the live commands (ROADMAP
   Review gates item).
