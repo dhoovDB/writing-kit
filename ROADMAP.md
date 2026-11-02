@@ -373,4 +373,4 @@ prose), and listing patch versions (they go stale on every dependency bump).
 
 ---
 
-*Last updated: 2026-11-02 (README template; Current status section)*
+*Last updated: 2026-11-02 (README template; Current status section; globalrules Tech stack line)*
