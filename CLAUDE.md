@@ -3,16 +3,26 @@
 This repo is a personal writing system built around a specific communication style.
 It is not a general-purpose style guide. It is calibrated to one person.
 
+## Before you do anything
+
+Run `/globalrules` now. It contains the delegation rules, approval gates,
+status reporting format, and architecture principles that govern every
+session. Its source lives in this repo at `prompts/globalrules.md`.
+
 ## What's here
 
 |File|Purpose|
 |-|-|
 |`VOICE.md`|Drop this into any Claude conversation to get writing in the right voice|
 |`product-management-philosophy.md`|Product-thinking companion to `VOICE.md`. Governs *what* to build and *which* doc you are writing (Problem / Solution / GTM, discovery, build-or-buy). Load it for product work; `VOICE.md` alone covers pure writing. The bottom-line summary is mirrored in both files.|
-|`prompts/`|Reusable prompts. `globalrules.md`, `dailytask.md`, `codereview.md`, `adversarialreview.md`, and `adhocstay.md` are also installed as live slash commands — after editing any of them, run `scripts/sync-commands.ps1` to propagate. `voice-check.md` is in-source-only for now.|
+|`prompts/`|Reusable prompts. `globalrules.md`, `dailytask.md`, `codereview.md`, `adversarialreview.md`, and `adhocstay.md` are also installed as live slash commands — after editing any of them, run `scripts/sync-commands.ps1` to propagate. `voice-check.md` and `strategy-review.md` are in-source only (not live commands).|
 |`scripts/`|Maintenance utilities. `sync-commands.ps1` copies the live prompts to `~/.claude/commands/`; idempotent, safe to re-run.|
-|`prd\_template.md`|PRD skeleton with voice-aware section prompts|
-|`examples/`|Input/output pair demonstrating the system prompt working|
+|`prd_template.md`|PRD skeleton with voice-aware section prompts|
+|`examples/`|Two input/output pairs demonstrating the system prompt working|
+|`feature-engineering-context.md`|Domain context for feature-engineering work; loaded by `feature-pipeline-skill` sessions|
+|`ROADMAP-TEMPLATE.md`|Portfolio standard for every repo's `ROADMAP.md`|
+|`README-TEMPLATE.md`|Portfolio standard for every repo's `README.md`, including the required Tech stack section|
+|`ROADMAP.md`|This repo's priorities, Current status, and decision log|
 
 ## How to use
 
@@ -28,7 +38,7 @@ PRD):** Load `product-management-philosophy.md` together with `VOICE.md`. The fi
 decides what's worth building and which doc you're in; the second makes it read like
 you. For pure writing with no product decision behind it, `VOICE.md` alone is enough.
 
-**For PRDs specifically:** Use `prd\_template.md`. The section prompts are written to
+**For PRDs specifically:** Use `prd_template.md`. The section prompts are written to
 pull the right information out of you, not just label blank boxes.
 
 ## What this is not
@@ -158,7 +168,7 @@ rename that established that parity. Promoting a new prompt to a live slash
 command means: add an entry to `$commands` in `sync-commands.ps1`, add a
 row to the portfolio workflow table, then run the script.
 
-\---
+---
 
 ## Diligence statement
 
@@ -177,6 +187,22 @@ AI assistance does not transfer ownership of the work or the decisions it reflec
 
 *Project and architectural decisions are logged in `ROADMAP.md`. This log tracks
 changes to this CLAUDE.md only.*
+
+### 2026-11-02 — Portfolio audit fixes
+
+Added the "Before you do anything" section that the other portfolio CLAUDE.md
+files carry. The What's here table gained `feature-engineering-context.md`, both
+templates, `ROADMAP.md`, and `strategy-review.md` (listed as in-source only).
+Fixed the `prd_template.md` filename, which rendered with a literal backslash,
+and a stray escaped horizontal rule.
+
+Two earlier changes to this file were never logged, recorded here as a backfill:
+
+- **2026-07-04:** grill-me and adversarial-reviewer added to the high-relevance
+  skills list, and `/adversarialreview` added to the live commands (ROADMAP
+  Review gates item).
+- **2026-11-01:** `/adhocstay` added to the live commands (ROADMAP decision log,
+  2026-11-01).
 
 ### 2026-05-25 — Adopted the portfolio ROADMAP standard
 

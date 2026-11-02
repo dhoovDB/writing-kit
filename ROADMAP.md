@@ -86,8 +86,8 @@ a task — this file lists *what*, not *how*.
 ### rewrite-in-voice.md — saved editing prompt
 - **What:** A reusable prompt for the "rewrite this in my voice, keep all the
   facts, change structure and tone" workflow.
-- **Why:** The `README.md` documents this exact workflow in prose, but it gets
-  retyped every time instead of saved.
+- **Why:** `CLAUDE.md` ("How to use") documents this exact workflow in prose, but
+  it gets retyped every time instead of saved.
 - **Done when:** `prompts/rewrite-in-voice.md` exists; it preserves every fact
   while restructuring; it names `voice-check.md` as the verify step.
 
@@ -156,9 +156,31 @@ so lower-cost models can run them reliably.
 - **Done when:** `prompts/exec-update.md` exists; output is point + one data point
   + ask, with everything else pushed to backup.
 
+
+### Portfolio audit follow-ups (2026-11-02)
+
+- [ ] **Archive this roadmap**. **What:** move finished decision-log entries
+  that no longer constrain current work to `ROADMAP-ARCHIVE.md`, leaving a
+  pointer. **Why:** the file is past the ~300-line limit in
+  `ROADMAP-TEMPLATE.md`. **Done when:** under 300 lines, moved verbatim, as its own
+  markdown-only commit.
+- [ ] **Decide on `prompts/strategy-review.md`**. **What:** promote it to a live
+  command (sync script entry plus workflow-table row) or retire it. **Why:**
+  nothing references it and it is not in `sync-commands.ps1`. **Done when:** it
+  is either live or deleted.
+- [ ] **Resolve the `context.md` reference**. **What:**
+  `feature-engineering-context.md` says to load it "alongside `context.md`", and
+  no such file exists. **Why:** a dead pointer in a file other sessions load.
+  **Done when:** the owner names the intended file and the line points to it.
+- [ ] **Refresh the example output headers**. **What:**
+  `examples/meridian-prd/output.md` cites `system_prompt.md`, and
+  `examples/NIM-explain/output.md` cites `voice.md`. **Why:** both predate the
+  `VOICE.md` name, and `examples/` is treated as a test suite. **Done when:**
+  both headers name current files.
+
 ---
 
-## Backlog (not yet prioritized)
+## Backlog
 
 Captured from the 2026-05-23 skill/prompt review so they aren't lost. Promote to
 P-tier when ready.
@@ -373,4 +395,4 @@ prose), and listing patch versions (they go stale on every dependency bump).
 
 ---
 
-*Last updated: 2026-11-02 (README template; Current status section; globalrules Tech stack line)*
+*Last updated: 2026-11-02 (README template; Current status; audit follow-ups)*
