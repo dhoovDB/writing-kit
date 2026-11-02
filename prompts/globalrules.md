@@ -138,6 +138,8 @@ them and handle at a natural stopping point.
 
 Never commit without explicit approval.
 Update ROADMAP.md before every commit.
+A commit that changes a manifest or lockfile updates the README Tech stack
+section in the same commit (see writing-kit/README-TEMPLATE.md).
 
 ---
 
