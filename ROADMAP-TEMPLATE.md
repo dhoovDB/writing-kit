@@ -79,7 +79,7 @@ legitimate; `/dailytask` reads any of them generically.
 - **Time-horizon** — `## SHORT TERM` / `## MEDIUM TERM` / `## LONG TERM`. Best for
   a live product with a stream of bugs and incremental features. *(banking-empire)*
 - **Version** — `## v1` / `## v2` / … with each version carrying a Goal and a
-  "Done when" bar. Best for a product shipping in discrete releases. *(str-host-assistant, passive-deal-screener)*
+  "Done when" bar. Best for a product shipping in discrete releases. *(str-host-assistant)*
 - **Priority tier** — `## Now (P1)` / `## Next (P2)` / `## Backlog`. Best for a
   library or toolkit picked from by priority. *(writing-kit)*
 - **Build spec** — numbered design/build sections, for a repo still pre-development
