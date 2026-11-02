@@ -153,7 +153,7 @@ not open until /codereview has run and all MUST FIX items are resolved.
 
 Exception: commits that touch only `.md` files skip /codereview. The
 commit-discipline check (one logical change, ROADMAP updated) still
-applies.
+applies. The push-side gate below has its own scope and still applies.
 
 Order:
 1. Task complete
@@ -172,10 +172,17 @@ Two standing gates wired to the claude-skills library:
   plan's decision tree one question at a time, with a recommended
   answer for each. "Major" means the work touches multiple files across
   layers, or it has a plan at all.
-- **Push side.** Self-authored multi-commit work gets /adversarialreview
-  before `git push`. The boundary is before push, not per commit — one
-  pass over the session's diff. /codereview still runs per commit; the
-  two gates do not substitute for each other.
+- **Push side.** /adversarialreview, in a fresh agent that did not write
+  the work. It covers self-authored work of more than one commit on one
+  task, unless the task touches only `ROADMAP.md` or `CLAUDE.md`, and a
+  change to anything in `prompts/`, any `SKILL.md`, or anything in
+  `references/`. A diff to those files that changes no instruction, fact,
+  number or path (a typo, formatting) skips the gate, and the commit
+  message says so. It runs before an owner review stop in the repo's plan,
+  if the work has one; otherwise before `git push`. One pass over the work,
+  not per commit. A second BLOCK goes to the owner to decide.
+  /codereview still has its own per-commit trigger; the two gates do not
+  substitute for each other.
 
 ---
 

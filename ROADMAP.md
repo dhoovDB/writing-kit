@@ -20,7 +20,7 @@ a task — this file lists *what*, not *how*.
 ## Current status (2026-11-02)
 
 - **Phase:** Now (P1). Review gates shipped 2026-07-04 and wait on each gate firing once on real work. The README standard (`README-TEMPLATE.md`) was adopted 2026-11-02.
-- **Next:** Owner reviews the portfolio-audit PRs, merging this repo's first, then runs `scripts/sync-commands.ps1` to install the `globalrules.md` change.
+- **Next:** Watch the fresh-agent `/adversarialreview` on its first real use (decision log, 2026-11-01); its final wording has had no fresh review.
 - **Open decisions:** LICENSE files across the portfolio; whether the `context.md` reference in `feature-engineering-context.md` means `VOICE.md`; promote or retire `prompts/strategy-review.md`.
 - **Blockers:** none.
 
@@ -51,7 +51,7 @@ a task — this file lists *what*, not *how*.
      "Major" = touched multiple files across layers, or anything that had
      a plan. The trigger boundary is *before push*, not per commit —
      per-commit is noise; one pass over a session's diff is the shape
-     that works.
+     that works. *(Scope and timing later changed: decision log, 2026-11-01.)*
   4. **`CLAUDE.md` high-relevance skills list** — add both skills with
      triggers (`grill-me`: stress-testing a plan or design before
      building; `adversarial-reviewer`: before pushing self-authored work,
@@ -360,6 +360,36 @@ in sessions opened in that folder. Keeping it in `prompts/` gives it version
 history and makes it available from any session. The prompt only drives
 `scripts/adhoc-stay.ts`; the logic stays in that repo.
 
+### 2026-11-01 — `/adversarialreview` runs in a fresh agent, with hard cases
+
+An independent reader kept finding wrong fixes in a private repo's reference
+files that had passed review in the session that wrote them, on the same model.
+The review's position was the cause: the author and the reviewer shared one
+context, and the checks asked whether stated claims held, not what input would
+break them. No existing gate covered this work: `/codereview` exempts markdown,
+and draft commits reach the remote before an owner stop.
+
+`/adversarialreview` now runs in a fresh agent without the author's account of
+what was tested, and tries each changed instruction on hard cases. Its scope is
+a closed list: multi-commit work, `prompts/`, any `SKILL.md` and `references/`.
+Tasks that touch only `ROADMAP.md` or `CLAUDE.md` do not count, and a diff that
+changes no instruction, fact, number or path skips it, because a gate that fires
+on everything gets dropped (one run cost about 5 minutes and 168,000 tokens on a
+50-line diff). It runs before an owner review stop if the plan has one, otherwise
+before push, so a late verdict cannot reopen approved work.
+
+Both runs on this change's own drafts returned BLOCK. They found real errors: the
+prompt told the reviewer to spawn a reviewer, and then let an author route to
+self-review. But personas must always find something, and the skill's promotion
+rule turns ordinary warnings into criticals, so the gate would rarely clear on
+its own. So in markdown a finding is CRITICAL only if following the text literally
+gives a wrong result or defeats the gate, and a second BLOCK goes to the owner.
+The owner accepted the second BLOCK's fixes without a third review, so the final
+wording has had no fresh review.
+
+This moves an existing gate and adds no command. A fresh reader also misses
+things, so it does not replace an eval harness where one can be built.
+
 ### 2026-11-02 — README template; Tech stack section required
 
 A portfolio audit found every README handling its stack differently: a "Built
@@ -400,4 +430,4 @@ prose alone), and listing patch versions (they go stale on every dependency bump
 
 ---
 
-*Last updated: 2026-11-02 (README template; Current status; audit follow-ups)*
+*Last updated: 2026-11-02 (`/adversarialreview` fresh agent and hard cases; README template; audit follow-ups)*

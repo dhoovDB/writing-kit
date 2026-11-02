@@ -114,8 +114,9 @@ a new task type is introduced.
 - performance-profiler — slow endpoints, memory leaks, perf budgets
 - grill-me — stress-testing a plan or design before building; the
   plan-side gate for major work (see Review gates in /globalrules)
-- adversarial-reviewer — before pushing self-authored multi-commit work,
-  or whenever a review felt too easy; runs as /adversarialreview
+- adversarial-reviewer — the push-side gate (see Review gates in
+  /globalrules), or whenever a review felt too easy; runs as
+  /adversarialreview
 
 **PM craft**
 - create-prd — writing or reviewing a PRD or feature spec
@@ -209,6 +210,11 @@ backfill, with the ROADMAP entry or commit that describes each:
   Review gates item).
 - **2026-11-01:** `/adhocstay` added to the live commands (ROADMAP decision log,
   2026-11-01).
+
+### 2026-11-01 — adversarial-reviewer trigger points to /globalrules
+
+The skills list now points to the push-side gate in /globalrules instead of
+restating its scope, which changed (`ROADMAP.md`, decision log, 2026-11-01).
 
 ### 2026-05-25 — Adopted the portfolio ROADMAP standard
 
