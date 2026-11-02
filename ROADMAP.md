@@ -17,6 +17,13 @@ Update before every commit.
 norms are in `CLAUDE.md` and `prompts/globalrules.md`. Read those before picking
 a task — this file lists *what*, not *how*.
 
+## Current status (2026-11-02)
+
+- **Phase:** Now (P1). Review gates shipped 2026-07-04 and wait on each gate firing once on real work. The README standard (`README-TEMPLATE.md`) was adopted 2026-11-02.
+- **Next:** Owner reviews the portfolio-audit PRs, merging this repo's first, then runs `scripts/sync-commands.ps1` to install the `globalrules.md` change.
+- **Open decisions:** LICENSE files across the portfolio; whether the `context.md` reference in `feature-engineering-context.md` means `VOICE.md`; promote or retire `prompts/strategy-review.md`.
+- **Blockers:** none.
+
 ---
 
 ## Now (P1)
@@ -327,6 +334,26 @@ in sessions opened in that folder. Keeping it in `prompts/` gives it version
 history and makes it available from any session. The prompt only drives
 `scripts/adhoc-stay.ts`; the logic stays in that repo.
 
+### 2026-11-02 — README template; Tech stack section required
+
+A portfolio audit found every README handling its stack differently: a "Built
+with" list in one, a one-line "Stack:" in another, nothing in two, and a
+placeholder in one. `README-TEMPLATE.md` now sets a README spine the same way
+`ROADMAP-TEMPLATE.md` does for roadmaps: fixed headers, a free product body, and
+a required `## Tech stack` table with a fixed row vocabulary. Major versions only,
+no counts, and every service the code calls is named, including the model ID for
+LLM calls.
+
+`globalrules.md` carries one line under Commit discipline: a commit that changes
+a manifest or lockfile updates the Tech stack in the same commit. That is the rule
+that keeps the table true, so it sits where every session reads it. Forks keep
+their upstream READMEs, and archived repos get a short archive notice instead of
+the template.
+
+Considered and not adopted: a fixed position for every section (the existing
+READMEs order them differently, and the template's principle is structure, not
+prose), and listing patch versions (they go stale on every dependency bump).
+
 ---
 
 ## Completed
@@ -339,7 +366,11 @@ history and makes it available from any session. The prompt only drives
       its `VOICE.md` section, and recommends a next step. Pairs with the
       forthcoming `rewrite-in-voice.md`. See the 2026-05-29 decision log entry
       for the runtime-loading choice.
+- [x] **Portfolio audit and README-TEMPLATE.md** (2026-11-02) — audited every
+      repo on the account for consistency, added `README-TEMPLATE.md` with a
+      required Tech stack section, and applied it to each project README. See the
+      2026-11-02 decision log entry.
 
 ---
 
-*Last updated: 2026-11-01 (decision log: `/adhocstay` command)*
+*Last updated: 2026-11-02 (README template; Current status section)*
